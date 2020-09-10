@@ -1,7 +1,7 @@
 <template>
   <header>
-    <nav>
       <h1>Todo List</h1>
+    <nav>
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
     </nav>
@@ -21,11 +21,12 @@ header {
   padding: 10px;
 }
 
-nav {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+a {
+  padding: 5px
+}
+
+a:active, a:focus {
+  font-weight: bold;
 }
 
 h1, a {

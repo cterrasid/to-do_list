@@ -1,11 +1,11 @@
 <template>
-  <div class="todo-item" :class="{'is-complete':todo.completed}">
-    <p>
+  <article class="todo-item">
+    <section>
       <input type="checkbox" @change="markComplete" />
-      {{todo.title}}
-      <button @click="$emit('del-todo', todo.id)" class="del">X</button>
-    </p>
-  </div>
+      <h1 :class="{'is-complete':todo.completed}">{{todo.title}}</h1>
+    </section>
+    <button @click="$emit('del-todo', todo.id)" class="del">X</button>
+  </article>
 </template>
 <script>
 export default {
@@ -21,20 +21,39 @@ export default {
 
 <style scoped>
 .todo-item {
-  background: #f4f4f4;
+  align-items: center;
+  background: var(--veryLightGrey);
+  border-bottom: 1px var(--lightGrey) dotted;
+  display: flex;
   padding: 10px;
-  border-bottom: 1px #ccc dotted;
 }
+
 .is-complete {
   text-decoration: line-through;
+  color: var(--darkPurple);
 }
+
+section {
+  align-items: center;
+  display: flex;
+  width: 90%;
+  justify-content: flex-start;
+}
+
+section > h1 {
+  padding: 0 10px;
+}
+
 .del {
-  background: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 5px 9px;
+  background: var(--purple);
   border-radius: 50%;
+  border: none;
+  color: var(--white);
   cursor: pointer;
   float: right;
+  font-weight: bold;
+  height: 30px;
+  padding: 5px 9px;
+  width: 30px;
 }
 </style>
